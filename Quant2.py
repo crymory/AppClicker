@@ -90,6 +90,7 @@ class Clicker:
         try:
             position = pt.locateOnScreen(target_png, confidence=0.8)
             if position:
+                print(f"    ")
                 #print(f"Image {target_png} found at position: {position}")
                 image_center_x = position[0] + position[2] // 2
                 image_center_y = position[1] + position[3] // 2
