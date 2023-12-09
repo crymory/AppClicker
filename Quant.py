@@ -102,7 +102,7 @@ class Clicker:
                 return False
 
         except Exception as e:
-            print(f'Error occurred while searching for image: {e}')
+            #print(f'Error occurred while searching for image: {e}')
             return False
 
     def run(self):
