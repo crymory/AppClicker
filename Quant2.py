@@ -4,6 +4,7 @@ import pyautogui as pt
 from threading import Thread
 from time import sleep
 import os
+import keyboard
 
 
 class ClickerApp:
