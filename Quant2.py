@@ -54,7 +54,7 @@ class ClickerApp:
             start_hotkey = self.start_hotkey.get()
             stop_hotkey = self.stop_hotkey.get()
 
-            self.clicker = Clicker(target_images, clicker_speed, start_hotkey, stop_hotkey, temp_dir, self)
+            self.clicker = Clicker(target_images, clicker_speed, start_hotkey, stop_hotkey, self)
             
             self.clicker_thread = Thread(target=self.clicker.run)
             self.clicker_thread.start()
@@ -73,8 +73,8 @@ class ClickerApp:
                 self.clicker_thread.join()
 
 class Clicker:
-    def __init__(self, target_images, speed, start_hotkey, stop_hotkey, temp_dir, app):
-        self.target_images = [os.path.join(temp_dir, image) for image in target_images]
+    def __init__(self, target_images, speed, start_hotkey, stop_hotkey, app):
+        self.target_images = target_images
         self.speed = speed
         self.paused = False
         self.stopped = False
