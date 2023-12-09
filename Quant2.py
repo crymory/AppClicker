@@ -87,13 +87,13 @@ class Clicker:
         self.paused = not self.paused
 
     def nav_to_image(self, target_png):
-        try:
-            position = pt.locateOnScreen(target_png, confidence=0.8)
-            print(f"    ____        __ _  __ ")
+            print(f"     ____        __ _  __")
             print(f"(   / __ )____  / /| |/ /")
             print(f"  / __  / __ \/ __/   / ")
             print(f" / /_/ / /_/ / /_/   | ")
             print(f"/_____/\____/\__/_/|_|     v1.1")
+        try:
+            position = pt.locateOnScreen(target_png, confidence=0.8)
             if position:
                 #print(f"Image {target_png} found at position: {position}")
                 image_center_x = position[0] + position[2] // 2
@@ -103,7 +103,7 @@ class Clicker:
                 return True
 
             else:
-                print(f"Image {target_png} not found.")
+                #print(f"Image {target_png} not found.")
                 return False
 
         except Exception as e:
