@@ -89,8 +89,13 @@ class Clicker:
     def nav_to_image(self, target_png):
         try:
             position = pt.locateOnScreen(target_png, confidence=0.8)
+            print(f"    ____        __ _  __ ")
+            print(f"(   / __ )____  / /| |/ /")
+            print(f"  / __  / __ \/ __/   / ")
+            print(f" / /_/ / /_/ / /_/   | ")
+            print(f"/_____/\____/\__/_/|_|     v1.1")
             if position:
-                print(f"Image {target_png} found at position: {position}")
+                #print(f"Image {target_png} found at position: {position}")
                 image_center_x = position[0] + position[2] // 2
                 image_center_y = position[1] + position[3] // 2
 
