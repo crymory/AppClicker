@@ -4,7 +4,6 @@ from tkinter import ttk
 from threading import Thread
 from time import sleep
 import keyboard
-import pygame
 
 class ClickerApp:
     def __init__(self, master, target_images, clicker_speed, start_hotkey, stop_hotkey):
@@ -32,7 +31,7 @@ class ClickerApp:
         self.start_hotkey_entry = ttk.Entry(self.master, textvariable=self.start_hotkey)
         self.start_hotkey_entry.grid(row=4, column=0, columnspan=2, padx=10, pady=5)
 
-        ttk.Label(self.master, text="Горячая клавиша Стоп:").grid(row=5, column=0, columnspan=2)
+        ttk.Label(self.master, text="Горячая клавиша Паузы:").grid(row=5, column=0, columnspan=2)
         self.stop_hotkey_entry = ttk.Entry(self.master, textvariable=self.stop_hotkey)
         self.stop_hotkey_entry.grid(row=6, column=0, columnspan=2, padx=10, pady=5)
 
@@ -40,11 +39,6 @@ class ClickerApp:
         self.status_label = ttk.Label(self.master, text="Статус: Остановлен", foreground="red")
         self.status_label.grid(row=7, column=0, columnspan=2, pady=5)
 
-        # Инициализация pygame для воспроизведения звуков
-        pygame.mixer.init()
-        self.start_sound = pygame.mixer.Sound("resources/start_sound.wav")  # Замените "start_sound.wav" на ваш файл звука
-        self.stop_sound = pygame.mixer.Sound("resources/stop_sound.wav")  # Замените "stop_sound.wav" на ваш файл звука
-        self.pause_sound = pygame.mixer.Sound("resources/stop_sound.wav")  # Замените "pause_sound.wav" на ваш файл звука
 
     def start_clicker(self):
         if not self.running:
@@ -54,8 +48,6 @@ class ClickerApp:
             self.status_label["text"] = "Статус: Запущен"
             self.status_label["foreground"] = "green"
 
-            # Воспроизведение звука Старт
-            self.start_sound.play()
 
             clicker_speed = float(self.clicker_speed.get())
             start_hotkey = self.start_hotkey.get()
@@ -74,8 +66,6 @@ class ClickerApp:
             self.status_label["text"] = "Статус: Остановлен"
             self.status_label["foreground"] = "red"
 
-            # Воспроизведение звука Стоп
-            self.stop_sound.play()
             
             if self.clicker_thread:
                 self.clicker.stop()
