@@ -9,6 +9,7 @@ class ClickerApp:
     def __init__(self, master, target_images, clicker_speed, start_hotkey, stop_hotkey):
         self.master = master
         self.master.title("Auto Clicker")
+        self.master.attributes('-toolwindow', True)  # Set tool window attributes
         self.running = False
         self.clicker_speed = tk.StringVar(value=str(clicker_speed))
         self.start_hotkey = tk.StringVar(value=start_hotkey)
