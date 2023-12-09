@@ -135,10 +135,18 @@ class Clicker:
 
 if __name__ == '__main__':
     target_images = [
-        "resources/grey.png", "resources/grey2.png", "resources/grey3.png",
-        "resources/greyBlue.png", "resources/greyBlue2.png", "resources/greyBlue3.png",
-        "resources/greyGrey.png", "resources/greyGrey2.png", "resources/greyGrey3.png",
-        "resources/violetGrey.png", "resources/violetGrey2.png", "resources/violetGrey3.png"
+        os.path.abspath("resources/grey.png"),
+        os.path.abspath("resources/grey2.png"),
+        os.path.abspath("resources/grey3.png"),
+        os.path.abspath("resources/greyBlue.png"),
+        os.path.abspath("resources/greyBlue2.png"),
+        os.path.abspath("resources/greyBlue3.png"),
+        os.path.abspath("resources/greyGrey.png"),
+        os.path.abspath("resources/greyGrey2.png"),
+        os.path.abspath("resources/greyGrey3.png"),
+        os.path.abspath("resources/violetGrey.png"), 
+        os.path.abspath("resources/violetGrey2.png"),
+        os.path.abspath("resources/violetGrey3.png"),
     ]
 
     root = tk.Tk()
