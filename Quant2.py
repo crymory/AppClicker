@@ -87,11 +87,6 @@ class Clicker:
         self.paused = not self.paused
 
     def nav_to_image(self, target_png):
-            print(f"     ____        __ _  __")
-            print(f"(   / __ )____  / /| |/ /")
-            print(f"  / __  / __ \/ __/   / ")
-            print(f" / /_/ / /_/ / /_/   | ")
-            print(f"/_____/\____/\__/_/|_|     v1.1")
         try:
             position = pt.locateOnScreen(target_png, confidence=0.8)
             if position:
