@@ -1,15 +1,15 @@
-import pyautogui as pt
 import tkinter as tk
 from tkinter import ttk
 from threading import Thread
 from time import sleep
 import keyboard
+import pyautogui as pt
 
 class ClickerApp:
     def __init__(self, master, target_images, clicker_speed, start_hotkey, stop_hotkey):
         self.master = master
         self.master.title("Auto Clicker")
-        #self.master.attributes('-toolwindow', True)  # Set tool window attributes
+        # self.master.attributes('-toolwindow', True)  # Set tool window attributes
         self.running = False
         self.clicker_speed = tk.StringVar(value=str(clicker_speed))
         self.start_hotkey = tk.StringVar(value=start_hotkey)
@@ -40,7 +40,6 @@ class ClickerApp:
         self.status_label = ttk.Label(self.master, text="Статус: Остановлен", foreground="red")
         self.status_label.grid(row=7, column=0, columnspan=2, pady=5)
 
-
     def start_clicker(self):
         if not self.running:
             self.running = True
@@ -49,13 +48,12 @@ class ClickerApp:
             self.status_label["text"] = "Статус: Запущен"
             self.status_label["foreground"] = "green"
 
-
             clicker_speed = float(self.clicker_speed.get())
             start_hotkey = self.start_hotkey.get()
             stop_hotkey = self.stop_hotkey.get()
 
             self.clicker = Clicker(target_images, clicker_speed, start_hotkey, stop_hotkey, self)
-            
+
             self.clicker_thread = Thread(target=self.clicker.run)
             self.clicker_thread.start()
 
@@ -67,7 +65,6 @@ class ClickerApp:
             self.status_label["text"] = "Статус: Остановлен"
             self.status_label["foreground"] = "red"
 
-            
             if self.clicker_thread:
                 self.clicker.stop()
                 self.clicker_thread.join()
@@ -91,7 +88,7 @@ class Clicker:
             position = pt.locateOnScreen(target_png, confidence=0.8)
             if position:
                 print(f"    ")
-                #print(f"Image {target_png} found at position: {position}")
+                # print(f"Image {target_png} found at position: {position}")
                 image_center_x = position[0] + position[2] // 2
                 image_center_y = position[1] + position[3] // 2
 
@@ -99,11 +96,11 @@ class Clicker:
                 return True
 
             else:
-                #print(f"Image {target_png} not found.")
+                # print(f"Image {target_png} not found.")
                 return False
 
         except Exception as e:
-            #print(f'Error occurred while searching for image: {e}')
+            # print(f'Error occurred while searching for image: {e}')
             return False
 
     def run(self):
